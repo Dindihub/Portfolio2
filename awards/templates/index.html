@@ -4,30 +4,31 @@
 {% block content %}
 
 <div
-class="container-fluid tm-hero text-center" style="background-image: url('/static/photos/samuel-scalzo-xyuYk9oLA8I-unsplash.jpg');padding:10em; background-position: fixed; background-size: cover;">
+class="container-fluid   tm-hero text-center" style="background-image: url('/static/photos/samuel-scalzo-xyuYk9oLA8I-unsplash.jpg');padding:10em; background-position: fixed; background-size: cover; height:600px;">
+<div class="">
+<h1 class="text-white ">Hello,I'm Sandra </h1>
+<h3 class="text-white"> A web developer from Kenya  </h3>
 
-<h3 class="text-white ">Hi,am sandra </h3>
-<h3 class="text-white"> I am a web developer from Kenya</h3>
-<h3 class="text-white"> I am passionate about using web technologies for creative solutions</h3>
-<h5 class="text-warning"> <i>Let's get creative!</i></h5>
 </div>
 
-<div class="container-fluid tm-container-content tm-mt-60">
+<div>
+    <img src="/static/photos/sandra.jpeg" alt="" class="rounded-circle" style="width:200px;">
+<p><a href="#contacts" type="button" class="btn-warning btn-lg mt-4" > Hire me</a></p>
+</div>
+</div>
 
-    <div class="row mb-4">
+
+    <div class="container-fluid tm-container-content tm-mt-60 p-4 text-center" id="projects">
         
-    </div>
-
-
-    <div class="container-fluid tm-container-content tm-mt-60 text-center">
         
-        <div class="row tm-mb-90 tm-gallery d-flex justify-content-center align-items-center" id="gallery ">
+        <div class="row tm-mb-90 tm-gallery d-flex justify-content-center align-items-center" >
         {% for project in projects %}
 
             <div class="card col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 ml-4">
                 <h5 class=" card-title text-center">{{project.project_title|title }}</h5>
                 <hr>
                 <figure class="effect-ming tm-video-item">
+                    
                     <img src="{{project.project_image.url}}" style="width:300px;background-repeat: no-repeat;"
                         class="card-img" />
                     <hr>
@@ -38,21 +39,78 @@ class="container-fluid tm-hero text-center" style="background-image: url('/stati
                     </div>
                     <span><a href="{{ project.project_url}}" type="button" class="btn btn-warning"> <small>Visit
                                 site</small></a></span>
-                    <span><a href="{% url 'rating' project.id %}" type="button" class="btn btn-warning"><small> Rate Site</small></a></span>
+                    <!-- <span><a href="{% url 'rating' project.id %}" type="button" class="btn btn-warning"><small> Rate Site</small></a></span> -->
                 </figure>
                 <div class="d-flex justify-content-between tm-text-gray ">
                     <span class="tm-text-gray-light ">
-                        Posted:{{ project.date_posted|date }}</span>by:<span><strong>{{project.user.username|title}}</strong>   </span>
+        
                 </div>
             </div>
 
             {% endfor %}
         </div>
+    </div>
 
-
-
-
-
+    <div class="container-fluid border-outline p-4" style="background-color:orange" id="contacts">
+        <h3 class="text-center">  Contacts</h3>
+        <div id="about" class="row about-section">
+            <div class="col-lg-4 about-card">
+                <h5 class="">Who am I ?</h5>
+                <span class="line mb-5"></span>
+                <h5 class="mb-3">A Web Developer from Kenya</h5>
+                <p class="mt-20">I am a Software Developer using web technologies for creative solutions.</p>
+                <p>My Stack:Bootstrap,Angular,Flask,Django,Git, Canva,Figma</p>
+                 <a href="https://github.com/Dindihub" class="btn btn-outline-success">GitHub</a>
+            </div>
+            <div class="col-lg-4 about-card">
+                <h5 class="">Personal Info</h5>
+                
+                <span class="line mb-5"></span>
+                <ul class="mt40 info list-unstyled">
+                    <li><span>Email</span> : sadindi03@gmail.com</li>
+                    <hr>
+                    <li><span>Phone</span> : + (254)</li>
+                    <hr>
+                    <li><span>Address</span> :  Nairobi,Kenya</li>
+                    <hr>
+                </ul>
+                <ul class="social-icons pt-3">
+                    <i class="fab fa-twitter ml-4"><a href="https://twitter.com/Nyartech_"></a></i>
+                    <i class="fab fa-github mx-4"><a href="https://github.com/Dindihub"></a></i>
+                    <i class="fab fa-blogger mr-4"><a href="https://nyartech.hashnode.dev/"></a></i>
+                    <!-- <i class="fab fa-twitter"><a href=""></a></i>   -->
+                </ul>  
+            </div>
+           
+            <div class="col-lg-4 about-card">
+                <h5 class="">My Expertise</h5>
+                <span class="line mb-5"></span>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-widget icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Web Development </h6>
+                        <p class="subtitle">I am a Fullstack developer with 30+ projects in HTML,CSS,Javascript and Python</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-paint-bucket icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Technical Writing</h6>
+                        <p class="subtitle">I write about Web development toolkits,Freelancing and Life-hacks</p>
+                        <hr>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-1 text-danger pt-1"><i class="ti-stats-up icon-lg"></i></div>
+                    <div class="col-10 ml-auto mr-3">
+                        <h6>Communications</h6>
+                        <p class="subtitle">I have 5+ previous experience in content creation for digital and publishing media</p>
+                        <hr>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
     {% endblock %}
