@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load crispy_forms_tags %}
+{% block content %}
+<div class="container-fluid " style="margin-top:3%;" >
+    <div class="row">
+
+        <div class="col-md-2 "></div>
+        <div class="col-md-8">
+            <div class="card " style="margin-left:20px;">
+                <div class="card-body">
+                    <!-- <h5 class="card-title"><a>LOGIN HERE</a> -->
+                    <form action="" method="POST" class="">
+                        {% csrf_token %}
+
+                        <div class="form-outline mb-4">
+                            <input type="username" name="username" id="form2Example1" class="form-control" />
+                            <label class="form-label" for="form2Example1">Username</label>
+                        </div>
+
+                        <!-- Password input -->
+                        <div class="form-outline mb-4">
+                            <input type="password" name="password" id="form2Example2" class="form-control" />
+                            <label class="form-label" for="form2Example2">Password</label>
+                        </div>
+
+                        <!-- 2 column grid layout for inline styling -->
+                        <div class="row mb-4">
+                            <div class="col d-flex justify-content-center">
+                                
+                            </div>
+
+
+                        </div>
+
+                        <!-- Submit button -->
+                        <button type="submit" class="btn btn-primary btn mb-2">Login</button>
+
+                        <!-- Register buttons -->
+                        <div>
+                            <p>Not a member? <a href="{% url 'register' %}">Register</a></p>
+
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+</div>
+
+</div>
+
+{% endblock %}

@@ -1,0 +1,52 @@
+
+
+{% extends 'base.html'%}
+{% load crispy_forms_tags %}
+{% block content %}
+
+<div class="container-fluid  d-flex">
+    
+
+        <div class="">
+            <div class="row">
+                <div class="col-md-6">
+                    <h5 class="mt-2"> Rate project</h5>
+                    <hr>
+                    <div>
+                        <form action="" method="POST" class="form-outline col-md-6">
+                            {% csrf_token %}
+                            {{ form|crispy}}
+                            <button type="submit" class="btn btn-warning btn-sm">
+                                Rate project
+                            </button>
+                        </form>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+        <div class="card col-md-4">
+<div class="col-md-6">
+            <h3>{{project.project_title}}</h3>
+            <img src="{{project.project_image.url}}" alt="" style="width:300px;">
+            {% for rating in ratings %}
+            <h5> Design:{{rating.design_rating}}</h5>
+            <h5>Usability:{{rating.usability_rating}}</h5>
+            <h5>Content: {{rating.content_rating}}</h5>
+            <p>Comment: {{rating.comment}}</p>
+
+            {% endfor %}
+        </div>
+        </div>
+        
+
+
+
+
+
+</div>
+
+
+
+{% endblock %}

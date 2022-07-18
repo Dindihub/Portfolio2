@@ -1,0 +1,78 @@
+ <nav class="navbar navbar-expand-lg navbar-light bg-light">
+   <!-- Container wrapper -->
+   <div class="container">
+     <!-- Navbar brand -->
+
+     <ul class="navbar-nav ">
+       {% if user.is_authenticated%}
+                <li class="nav-item active">
+                    <form class="form-inline" method="GET" action="{% url 'search' %}">
+                        {% csrf_token %}
+                        <div class="md-form my-0">
+                            <input class="form-control mr-sm-2 " type="text" placeholder="Search for projects" name="project" aria-label="Search">
+                        </div>
+                    </form>
+                </li>
+                {% else %}
+         <a href="{% url 'login' %}"></a>
+         {% endif %}
+            </ul>
+     <h3 class="text-center col-md-6">AAWARDS</h3>
+
+     <!-- Collapsible wrapper -->
+     <div class="collapse navbar-collapse" id="navbarButtonsExample">
+       <!-- Left links -->
+       <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+         <li class="nav-item">
+
+         </li>
+       </ul>
+
+       
+       <!-- Left links -->
+
+       <div class="d-flex align-items-center">
+         <a href="{% url 'login' %}" type="button" class="btn btn-light me-3">
+           <small>Login</small>  
+         </a>
+         <a href="{% url 'register' %}" type="button" class="btn btn-light me-3">
+           <small>Register</small>  
+         </a>
+       </div>
+
+       
+       <ul class="navbar-nav navbar-right">
+         {% if user.is_authenticated%}
+         <li class="nav-item dropdown">
+                <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="navbarDropdownMenuLink"
+                  role="button" data-mdb-toggle="dropdown" aria-expanded="false">
+                  <img src="{{user.profile.profile_photo.url}}" class="rounded-circle" height="22" alt=""
+                    loading="lazy" /> 
+                    {{request.user}}
+                </a>
+                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                  <li>
+                    <a class="dropdown-item" href="{% url 'home'%}"> Home</a>
+                  </li>
+                  <li>
+                    <a class="dropdown-item" href="{% url 'profile'%}"> Profile</a>
+                  </li>
+                  <li><a class="dropdown-item" href="#">Settings</a></li>
+                  <li><a class="dropdown-item" href="{% url 'logout'%}">Logout</a></li>
+                </ul>
+              </li>
+         
+         {% else %}
+         <a href="{% url 'login' %}"></a>
+         {% endif %}
+
+       </ul>
+     </div>
+     <a href="{% url 'upload_project' %}" type="button" class="btn btn-sm btn-dark ">
+           <small>Upload a Project</small>
+         </a>
+     <!-- Collapsible wrapper -->
+   </div>
+   <!-- Container wrapper -->
+ </nav>
+ <!-- Navbar -->

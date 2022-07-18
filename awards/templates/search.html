@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+
+{% for project in results %}
+<div class="col-md-4 mb-4">
+    <div class="card">
+        <div class="view overlay">
+            <img class="card-img-top" src="{{ project.project_image.url }}" alt="{{project.project_title}}">
+            <a href="">
+                <div class="mask rgba-white-slight"></div>
+            </a>
+        </div>
+        <div class="card-body">
+            <h4 class="card-title">{{project.project_title|title}}
+                <a class="btn btn-sm btn-outline-info" href="{{project.project_url}}" style=""> View</a></h4>
+            <hr>
+
+            By {{project.user.username|title}} <span style="float:right">{{project.date_posted|date}}</span>
+
+
+            </p>
+        </div>
+    </div>
+</div>
+
+
+{% endfor %}
+
+
+{% endblock %}

@@ -1,0 +1,58 @@
+{% extends 'base.html'%}
+{% load bootstrap4 %}
+{% load static %}
+{% block content %}
+
+<div
+class="container-fluid tm-hero text-center" style="background-image: url('/static/photos/samuel-scalzo-xyuYk9oLA8I-unsplash.jpg');padding:10em; background-position: fixed; background-size: cover;">
+
+<h3 class="text-white ">Hi,am sandra </h3>
+<h3 class="text-white"> I am a web developer from Kenya</h3>
+<h3 class="text-white"> I am passionate about using web technologies for creative solutions</h3>
+<h5 class="text-warning"> <i>Let's get creative!</i></h5>
+</div>
+
+<div class="container-fluid tm-container-content tm-mt-60">
+
+    <div class="row mb-4">
+        
+    </div>
+
+
+    <div class="container-fluid tm-container-content tm-mt-60 text-center">
+        
+        <div class="row tm-mb-90 tm-gallery d-flex justify-content-center align-items-center" id="gallery ">
+        {% for project in projects %}
+
+            <div class="card col-xl-3 col-lg-4 col-md-6 col-sm-6 col-12 mb-5 ml-4">
+                <h5 class=" card-title text-center">{{project.project_title|title }}</h5>
+                <hr>
+                <figure class="effect-ming tm-video-item">
+                    <img src="{{project.project_image.url}}" style="width:300px;background-repeat: no-repeat;"
+                        class="card-img" />
+                    <hr>
+                    <figcaption class="d-flex align-items-center justify-content-center">
+                        <p class="text-center">{{project.description}}</p>
+                    </figcaption>
+                    <div>
+                    </div>
+                    <span><a href="{{ project.project_url}}" type="button" class="btn btn-warning"> <small>Visit
+                                site</small></a></span>
+                    <span><a href="{% url 'rating' project.id %}" type="button" class="btn btn-warning"><small> Rate Site</small></a></span>
+                </figure>
+                <div class="d-flex justify-content-between tm-text-gray ">
+                    <span class="tm-text-gray-light ">
+                        Posted:{{ project.date_posted|date }}</span>by:<span><strong>{{project.user.username|title}}</strong>   </span>
+                </div>
+            </div>
+
+            {% endfor %}
+        </div>
+
+
+
+
+
+    </div>
+
+    {% endblock %}
